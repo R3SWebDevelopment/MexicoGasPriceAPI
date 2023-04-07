@@ -1,8 +1,9 @@
-from flask import Flask
+from flask import Flask, request
 
 app = Flask(__name__)
 
 
 @app.route("/health-check")
 def health_check():
-    return "<p>health-check</p>"
+    response = f"<p>request.remote_addr: {request.remote_addr}</p>"
+    return response
